@@ -59,29 +59,32 @@ class Solution(object):
         """
         if not num:
             return "0"
-        result=""
-        while(num and len(result) != 8):#不懂？？？？？and len(result) != 8
+
+        result = []
+        while num and len(result) != 8:  #不懂？？？？？and len(result) != 8
             """
             a=60 b=13
             a = 0011 1100  b = 0000 1101
             &	按位与运算符：参与运算的两个值,如果两个相应位都为1,则该位的结果为1,
             否则为0	(a & b) 输出结果 12 ，二进制解释： 0000 1100
             """
-            x=num & 15
-            c=""
-            if x>9:
-                c=str(chr(ord('a') + x-10))
+            h = num & 15
+            if h < 10:
+                result.append(str(chr(ord('0') + h)))
             else:
-                c=str((chr(ord('0') + x)))
-            result=str(c)+result
+                result.append(str(chr(ord('a') + h-10)))
             """
             >>	右移动运算符：把">>"左边的运算数的各二进位全部右移若干位，
             >> 右边的数字指定了移动的位数	a >> 2 输出结果 15 ，二进制解释： 0000 1111
             """
-            num>>4
-        return result
+            num >>= 4
+        result.reverse()
+        # return result
+
+        return "".join(result)
+
 if __name__ == "__main__":
-    print Solution().toHex(-1)
+    print Solution().toHex(26)
     
             
 
