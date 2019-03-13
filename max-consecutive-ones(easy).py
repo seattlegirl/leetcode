@@ -32,4 +32,4 @@ class Solution(object):
         return b
         
 if __name__ == "__main__":
-    print Solution().findMaxConsecutiveOnes([1,1,0,0,0,1,1,1,1,0])
+    print Solution().findMaxConsecutiveOnes([1,1,0,0,0,1,1,1,1,0,0])
